@@ -8,7 +8,7 @@
 
 int main(){
 
-    int a = 0, b = 0, n = 0;
+    int a = 0, b = 0, n = 0, r = 0;
     std::tie(a, b, n) = input();
     //start recording calculation time
     std::chrono::high_resolution_clock::time_point start = std::chrono::high_resolution_clock::now();
@@ -24,7 +24,9 @@ int main(){
         //std::cout << "The gs are: " << write_gs(a, b, n) << "\n";
         itpp::mat gr(n,2*n);
         gr = write_gs(a, b, n);
-        std::cout << "There are " << num_indep(a, b, n, gr) << " Independent generaters." << "\n";
+        r = num_indep(a, b, n, gr);
+        std::cout << "There are " << r << " Independent generaters." << "\n";
+        std::cout << "There is(are) " << n-r << " encoded qubit(s)." << "\n";
     }
     //end recording calculation time
     std::chrono::high_resolution_clock::time_point end = std::chrono::high_resolution_clock::now();
