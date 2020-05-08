@@ -32,7 +32,7 @@ int main(int argc, char **argv){
         itpp::GF2mat gr(n,2*n);
         gr = write_gs(a, b, n);
         //r = num_indep(a, b, n, gr);
-        r = gr.row_rank() + 1;
+        r = gr.row_rank();
         std::cout << "There are " << r << " Independent generaters." << "\n";
         std::cout << "There is(are) " << n-r << " encoded qubit(s)." << "\n";
     }
